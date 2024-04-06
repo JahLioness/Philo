@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 06:07:00 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 11:08:25 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:09:58 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,10 @@
 typedef struct s_table
 {
 	int				nb_philo;
-	int				time_to_die;
+	int				t_t_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nb_must_eat;
-	// int				is_dead;
 	int				can_eat;
 	int				have_eat;
 	sem_t			*dead;

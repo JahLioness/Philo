@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 07:44:36 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 09:11:12 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:04:19 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ static void	ft_set_nb_eat(t_philo *ph)
 		ft_int_setter(&ph->nb_eat, ph->nb_eat + 1, ph->table->data);
 }
 
+static void	ft_execute_routine(t_philo *ph)
+{
+	ft_eat(ph);
+	ft_set_nb_eat(ph);
+	ft_execute_end_routine(ph);
+}
+
 void	*ft_routine(t_philo *ph)
 {
 	pthread_t	thread;
@@ -52,11 +59,7 @@ void	*ft_routine(t_philo *ph)
 				break ;
 			}
 			if (ft_check_routine(ph))
-			{
-				ft_eat(ph);
-				ft_set_nb_eat(ph);
-				ft_execute_end_routine(ph);
-			}
+				ft_execute_routine(ph);
 		}
 		if (ft_check_death(ph))
 			break ;

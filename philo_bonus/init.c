@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 00:28:03 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 11:07:07 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:10:23 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,13 @@ void	ft_init_sem(t_table *table)
 void	ft_init_table(t_table *table, int ac, char **av)
 {
 	table->nb_philo = ft_atoi(av[1]);
-	table->time_to_die = ft_atoi(av[2]);
+	table->t_t_die = ft_atoi(av[2]);
 	table->time_to_eat = ft_atoi(av[3]);
 	table->time_to_sleep = ft_atoi(av[4]);
 	table->nb_must_eat = -1;
 	if (ac == 6)
 		table->nb_must_eat = ft_atoi(av[5]);
 	table->can_eat = 0;
-	// table->is_dead = 0;
 	table->have_eat = 0;
 	table->start.tv_sec = 0;
 	table->start.tv_usec = 0;

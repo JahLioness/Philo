@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 11:25:49 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 09:09:53 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:02:08 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static int	ft_main(t_table *table, t_philo *ph)
 
 int	main(int ac, char **av)
 {
-	// pthread_t	supervisor;
 	t_table		table;
 	t_philo		*ph;
 
@@ -59,9 +58,6 @@ int	main(int ac, char **av)
 		return (1);
 	while (waitpid(-1, NULL, 0) > 0)
 		;
-	// if (pthread_create(&supervisor, NULL, ft_supervise_death, &table))
-	// 	return (ft_supervisor_error(supervisor), 1);
-	// pthread_join(supervisor, NULL);
 	ft_free_philo(&table, ph);
 	ft_free_sem(&table);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 07:39:01 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 11:12:09 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:02:38 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	ft_right_fork(t_philo *ph)
 	if (!ft_long_getter(&ph->table->dead->__align, ph->table->data))
 	{
 		sem_wait(ph->table->print);
-		printf("%d %d has taken a fork\n", ft_get_current_time_diff(ph->table->start), ph->id);
+		printf("%d %d has taken a fork\n",
+			ft_get_current_time_diff(ph->table->start), ph->id);
 		sem_post(ph->table->print);
 	}
 }
@@ -29,7 +30,8 @@ static void	ft_left_fork(t_philo *ph)
 	if (!ft_long_getter(&ph->table->dead->__align, ph->table->data))
 	{
 		sem_wait(ph->table->print);
-		printf("%d %d has taken a fork\n", ft_get_current_time_diff(ph->table->start), ph->id);
+		printf("%d %d has taken a fork\n",
+			ft_get_current_time_diff(ph->table->start), ph->id);
 		sem_post(ph->table->print);
 	}
 }
