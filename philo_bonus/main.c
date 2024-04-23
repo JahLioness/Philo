@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 11:25:49 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 12:02:08 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:09:33 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_main(t_table *table, t_philo *ph)
 	while (++i < table->nb_philo)
 	{
 		ph[i].pid = fork();
-		if (ph[i].pid < 0)
+		if (ph[i].pid == -1)
 		{
 			printf("%sError: fork failed%s\n", RED, NC);
 			return (1);
@@ -31,9 +31,15 @@ static int	ft_main(t_table *table, t_philo *ph)
 		{
 			ph[i].last_meal = table->start;
 			ft_routine(&ph[i]);
-			exit(0);
 		}
+		// else
+		// {
+		// 	waitpid(ph[i].pid, NULL, 0);
+		// 	kill(ph[i].pid, SIGKILL);
+		// }
 	}
+	while (i--)
+		waitpid(ph[i].pid, NULL, 0);
 	return (0);
 }
 
@@ -41,7 +47,7 @@ int	main(int ac, char **av)
 {
 	t_table		table;
 	t_philo		*ph;
-
+	
 	if (ft_parse(ac, av))
 		return (1);
 	ft_init_table(&table, ac, av);
@@ -56,9 +62,8 @@ int	main(int ac, char **av)
 	ft_init_sem(&table);
 	if (ft_main(&table, ph))
 		return (1);
-	while (waitpid(-1, NULL, 0) > 0)
-		;
 	ft_free_philo(&table, ph);
+	// free(ph);
 	ft_free_sem(&table);
 	return (0);
 }

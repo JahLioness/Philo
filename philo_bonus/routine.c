@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 07:44:36 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 12:04:19 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:02:37 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ void	*ft_routine(t_philo *ph)
 			break ;
 	}
 	pthread_join(thread, NULL);
-	return (NULL);
+	ft_free_sem(ph->table);
+	free(ph->table->ph);
+	exit(0);
 }
