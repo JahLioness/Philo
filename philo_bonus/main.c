@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 11:25:49 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/23 12:09:33 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:26:43 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ static int	ft_main(t_table *table, t_philo *ph)
 			ph[i].last_meal = table->start;
 			ft_routine(&ph[i]);
 		}
-		// else
-		// {
-		// 	waitpid(ph[i].pid, NULL, 0);
-		// 	kill(ph[i].pid, SIGKILL);
-		// }
 	}
 	while (i--)
 		waitpid(ph[i].pid, NULL, 0);
 	return (0);
 }
+		// else
+		// {
+		// 	waitpid(ph[i].pid, NULL, 0);
+		// 	kill(ph[i].pid, SIGKILL);
+		// }
 
 int	main(int ac, char **av)
 {
 	t_table		table;
 	t_philo		*ph;
-	
+
 	if (ft_parse(ac, av))
 		return (1);
 	ft_init_table(&table, ac, av);
@@ -63,7 +63,7 @@ int	main(int ac, char **av)
 	if (ft_main(&table, ph))
 		return (1);
 	ft_free_philo(&table, ph);
-	// free(ph);
 	ft_free_sem(&table);
 	return (0);
 }
+	// free(ph);
