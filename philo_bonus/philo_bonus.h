@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 06:07:00 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/12 12:04:03 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:23:01 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		ft_get_time_diff(struct timeval start, struct timeval end);
 int		ft_get_current_time_diff(struct timeval start);
 int		ft_parse(int ac, char **av);
 void	ft_get_time(struct timeval *current);
+void	ft_sleep(int time, t_table *table);
 
 /*	FT_INIT	*/
 void	ft_init_sem(t_table *table);

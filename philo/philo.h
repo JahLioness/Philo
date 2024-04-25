@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:55:40 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/05 10:57:51 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:16:50 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		ft_int_getter(int *value, pthread_mutex_t *mutex);
 void	ft_get_time(struct timeval *current);
 void	ft_int_setter(int *value, int new_value, pthread_mutex_t *mtx);
 void	ft_time_setter(struct timeval *time, pthread_mutex_t *mtx);
+void	ft_sleep(int time, t_table *table);
 
 /* FT_ERRORS */
 int		ft_mutex_ph_error(t_philo *ph, int i);

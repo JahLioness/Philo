@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 11:25:49 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/23 12:26:43 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:26:48 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	ft_main(t_table *table, t_philo *ph)
 		ph[i].pid = fork();
 		if (ph[i].pid == -1)
 		{
+			while (i--)
+				kill(ph[i].pid, SIGKILL);
 			printf("%sError: fork failed%s\n", RED, NC);
 			return (1);
 		}

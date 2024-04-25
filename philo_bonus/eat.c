@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 07:39:01 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/06 12:02:38 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:44:52 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_eat(t_philo *ph)
 		sem_post(ph->table->print);
 	}
 	ft_get_time(&ph->last_meal);
-	usleep(ph->table->time_to_eat * 1000);
+	ft_sleep(ph->table->time_to_eat, ph->table);
 	sem_post(ph->table->forks);
 	sem_post(ph->table->forks);
 }

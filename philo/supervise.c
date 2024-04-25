@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 20:14:55 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/05 10:57:16 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:43:19 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	ft_check_death_sup(t_table *table, int i)
 {
-	if ((ft_get_current_time_diff(table->ph[i].last_meal) >= table->time_to_die
-			&& ft_get_current_time_diff(table->start) >= table->time_to_die)
+	if ((ft_get_current_time_diff(table->ph[i].last_meal) > table->time_to_die
+			&& ft_get_current_time_diff(table->start) > table->time_to_die)
 		|| (ft_int_getter(&table->nb_philo, &table->data) == 1
-			&& ft_get_current_time_diff(table->start) >= table->time_to_die))
+			&& ft_get_current_time_diff(table->start) > table->time_to_die))
 	{
 		pthread_mutex_lock(&table->print);
 		printf("%s%d %d died%s\n", RED, ft_get_current_time_diff(table->start),

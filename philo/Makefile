@@ -23,7 +23,8 @@ SRCS = eat.c \
 		routine_utils.c \
 		supervise.c \
 		think.c \
-		utils.c
+		utils.c \
+		ft_sleep.c
 
 OBJS = $(SRCS:.c=.o)
 

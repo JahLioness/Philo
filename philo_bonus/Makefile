@@ -7,8 +7,7 @@ NC = \033[0m
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -pthread -g3 
-# -fsanitize=thread -g
+CFLAGS = -Wall -Wextra -Werror -pthread -g3
 
 NAME = philo_bonus
 
@@ -22,7 +21,8 @@ SRCS = eat.c \
 		routine_utils.c \
 		supervise.c \
 		think.c \
-		utils.c
+		utils.c \
+		ft_sleep.c
 
 OBJS = $(SRCS:.c=.o)
 

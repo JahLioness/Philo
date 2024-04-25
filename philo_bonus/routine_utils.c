@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 11:45:03 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/04/22 17:11:41 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:45:05 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	ft_execute_end_routine(t_philo *ph)
 		printf("%d %d is sleeping\n",
 			ft_get_current_time_diff(ph->table->start), ph->id);
 		sem_post(ph->table->print);
-		usleep(ft_int_getter(&ph->table->time_to_sleep, ph->table->data)
-			* 1000);
+		ft_sleep(ft_int_getter(&ph->table->time_to_sleep, ph->table->data),
+			ph->table);
 		ft_think(ph);
 	}
 }
